@@ -62,28 +62,35 @@ public class Ex04HashSet1 {
 		while(itr.hasNext()) {
 			//3.true가 반환되면 next()를 호출하여 인출.
 			Object object = itr.next();
+			
+			/*
+			 * HashSet에 저장 시 모두 Object형으로 자동형변환되어 저장되므로 우리가 직접 정의한
+			 * 클래스에 대해서만 instanceof를 통해 타입을 확인한 후 다운캐스팅을 하여 출력한다.
+			 * 만약 다운캐스팅을 하지 않으면 자식멤버에 접근할 수 없으므로 getName을 호출할 수 없다.
+			 */
 			if(object instanceof Teacher) {
 				System.out.println("Teacher객체 =>" + ((Teacher)object).getName());
 			}
 			else {
+				//기본클래스인 경우 별도의 처리없이 출력가능함.
 				System.out.println("저장된 객체:"+ object);
 			}
 		}//end of while
 		
 		/*
-		 * 포함여부 확인
+		 * 포함여부 확인 : set에 해당 인스턴스가 저장되어 있는지 확인하여 boolean을 반환한다.
 		 */
 		System.out.println(set.contains(varString1) ?
 				"varString1 있음" : "varString1 없음");
 		
 		/*
-		 * 객체삭제
+		 * 객체삭제 : set은 인덱스를 사용하지 않으므로 인스턴스의 참조값을 통해 삭제한다.
 		 */
 		System.out.println(set.remove(varString2) ?
 				"varString2 삭제 성공" : "varString2 삭제 실패");
 		
 		/*
-		 * 전체삭제
+		 * 전체삭제 : List와 동일한 메서드를 사용한다.
 		 */
 		set.clear();
 		System.out.println("전체삭제:" + set.removeAll(set));
