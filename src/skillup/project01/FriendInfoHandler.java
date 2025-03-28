@@ -123,7 +123,6 @@ public class FriendInfoHandler {
 //		Scanner scan = new Scanner(System.in);
 		System.out.print("삭제할 이름을 입력하세요:");
 		String deleteName = scan.nextLine();
-		int delete
 		
 	}
 	
